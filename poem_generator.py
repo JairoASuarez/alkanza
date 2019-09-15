@@ -23,6 +23,11 @@ class Grammar:
 
     @staticmethod
     def _parse_rules(grammar_path: str) -> Dict:
+        """
+        Parses grammar file to rules dictionary
+        :param grammar_path: str
+        :return: Dict of rules
+        """
         rules = {}
         with open(grammar_path, 'r') as grammar_file:
             for line in grammar_file:
@@ -48,10 +53,19 @@ class Generator:
             sys.exit(1)
 
     def generate_poem(self) -> None:
+        """
+        Generates a random poem
+        :return: None
+        """
         self._generate_word(self._start_rule)
         print(self._poem)
 
     def _generate_word(self, token: str) -> None:
+        """
+        Generates a word recursively
+        :param token: str
+        :return:  None
+        """
         if token in self._grammar.rules.keys():
             rule = self._grammar.rules[token]
             for tokens in rule.tokens_list:
