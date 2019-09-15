@@ -15,7 +15,7 @@ _LINEBREAK = '$LINEBREAK'
 
 
 class Grammar:
-    def __init__(self, grammar_path: str):
+    def __init__(self, grammar_path: str) -> None:
         if not path.isfile(grammar_path):
             print("Grammar file '{}' doesn't exists.".format(grammar_path))
             sys.exit(1)
@@ -33,12 +33,12 @@ class Grammar:
 
 
 class Rule:
-    def __init__(self, tokens_list: list):
+    def __init__(self, tokens_list: list) -> None:
         self.tokens_list = tokens_list
 
 
 class Generator:
-    def __init__(self, grammar_path: str, start_rule: str):
+    def __init__(self, grammar_path: str, start_rule: str) -> None:
         self._grammar = Grammar(grammar_path)
         self._start_rule = start_rule
         self._poem = ""
@@ -47,11 +47,11 @@ class Generator:
             print("Start rule '{}' is not valid.".format(self._start_rule))
             sys.exit(1)
 
-    def generate_poem(self):
+    def generate_poem(self) -> None:
         self._generate_word(self._start_rule)
         print(self._poem)
 
-    def _generate_word(self, token: str):
+    def _generate_word(self, token: str) -> None:
         if token in self._grammar.rules.keys():
             rule = self._grammar.rules[token]
             for tokens in rule.tokens_list:
