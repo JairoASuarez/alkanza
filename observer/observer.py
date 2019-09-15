@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sept 15 2019
+@author: Jairo Suarez
+"""
+
 from abc import ABC, abstractmethod
 
 
